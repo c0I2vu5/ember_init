@@ -1,5 +1,8 @@
 #!/bin/ash
 
+${TGT_IP}=0.0.0.0
+${TGT_MAC}=00:00:00:00:00:00
+
 # SETUP
 ## Init
 ###login with root nopassword
@@ -11,11 +14,11 @@ setup-alpine
 #interface eth0       [enter]
 #ip address for eth0  [enter]
 #interface wlan0      [enter]
-#wireless network     $SSID
-#Pre-shared key       $WLANPASS
+#wireless network     ${SSID}
+#Pre-shared key       ${WLANPASS}
 #ip address for wlan0 [enter]
 #network conf         [enter]
-#root password        $[PASS]
+#root password        ${PASS}
 #timezone             Japan
 #proxy                [enter]
 #ntp client           [enter]
@@ -42,12 +45,12 @@ depend() {
 
 start() {
     ebegin "Starting ignite"
-    ping -c 1 $tgt_ip > /dev/null
+    ping -c 1 ${TGT_IP} > /dev/null
     while [ $? -eq 1 ]
     do
-        awake $tgt_mac
+        awake ${TGT_MAC}
         sleep 1m
-        ping -c 1 $tgt_ip > /dev/null
+        ping -c 1 ${TGT_IP} > /dev/null
     done
 }
 
