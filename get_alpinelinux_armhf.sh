@@ -1,10 +1,12 @@
 #!/bin/bash
 
-${MM}=3.9
+${MAJOR}=3
+${MINOR}=9
 ${BUILD}=2
+${REVISION}=
 
 rm -rf ./zw
-curl -LO http://dl-cdn.alpinelinux.org/alpine/v${MM}/releases/armhf/alpine-rpi-${MM}.${BUILD}-armhf.tar.gz
+curl -LO http://dl-cdn.alpinelinux.org/alpine/v${MAJOR}.${MINOR}/releases/armhf/alpine-rpi-${MAJOR}.${MINOR}.${BUILD}-armhf.tar.gz
 mkdir zw
 tar zxf alpine*.tar.gz -C zw
 rm -f alpine*.tar.gz
