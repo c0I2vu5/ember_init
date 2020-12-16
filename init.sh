@@ -1,11 +1,14 @@
 #!/bin/ash
 
-${TGT_IP}=0.0.0.0
-${TGT_MAC}=00:00:00:00:00:00
+## ENV
+${TGT_SSID}=
+${TGT_PASSPHRASE}=
+${TGT_IP}=
+${TGT_MAC}=`arp -a | grep ${TGT_IP} | awk '{print $4}'`
 
 # SETUP
 ## Init
-###login with root nopassword
+### login with root nopassword
 
 setup-alpine
 #layout               jp
