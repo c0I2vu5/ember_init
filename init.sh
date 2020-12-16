@@ -35,6 +35,7 @@ sed -i /etc/apk/repositories
 apk update
 apk upgrade
 apk add --no-cache awake openrc util-linux
+wpa_passphrase ${TGT_SSID} ${TGT_PASSPHRASE} | sed -e '/^[\f\n\r\t]#/d' >> /etc/wpa_supplicant/wpa_supplicant.conf
 
 # Main script
 cat > /etc/init.d/ignite <<EOF
